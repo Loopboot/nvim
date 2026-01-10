@@ -90,10 +90,13 @@ vim.lsp.config("ts_ls", {
   },
 })
 
-vim.lsp.config("basedpyright", {
+vim.lsp.config("pyright", {
   filetypes = { "python" },
 })
 
+vim.lsp.config("pylsp", {
+  filetypes = { "python" },
+})
 -- dockerls: Set filetypes (Standard for Dockerfile)
 vim.lsp.config("dockerls", {
   filetypes = { "dockerfile" },
@@ -107,7 +110,7 @@ local servers = {
   "html",
   "cssls",
   "ts_ls",
-  "basedpyright",
+  "pyright",
   "eslint_lsp",
   "tailwindcss",
   "emmet_language_server",
