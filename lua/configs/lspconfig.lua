@@ -27,6 +27,7 @@ vim.lsp.config("emmet_language_server", {
     "scss",
     "typescriptreact",
     "javascriptreact",
+    "php",
   },
   init_options = {
     ---@type table<string, string>
@@ -58,17 +59,64 @@ vim.lsp.config("docker_compose_language_service", {
   filetypes = { "yaml.docker-compose" },
 })
 
+vim.lsp.config("phpactor", {
+  filetypes = { "php" },
+})
+
+vim.lsp.config("intelephense", {
+  filetypes = { "php" },
+})
+
+vim.lsp.config("rust_analyzer", {
+  filetypes = { "rust" },
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true, -- Recommended: enables all features (like dev dependencies)
+      },
+      checkOnSave = {
+        command = "clippy", -- Recommended: runs 'cargo clippy' instead of 'cargo check' on save
+      },
+    },
+  },
+})
+
+vim.lsp.config("ts_ls", {
+  filetypes = {
+    "javascriptreact",
+    "typescriptreact",
+    "typescript",
+    "javascript",
+  },
+})
+
+vim.lsp.config("basedpyright", {
+  filetypes = { "python" },
+})
+
+-- dockerls: Set filetypes (Standard for Dockerfile)
+vim.lsp.config("dockerls", {
+  filetypes = { "dockerfile" },
+})
+
+-- docker_compose_language_service: Set filetypes (Standard for Compose YAML)
+vim.lsp.config("docker_compose_language_service", {
+  filetypes = { "yaml.docker-compose" },
+})
 local servers = {
   "html",
   "cssls",
   "ts_ls",
-  "pyright",
+  "basedpyright",
   "eslint_lsp",
   "tailwindcss",
   "emmet_language_server",
+  "dockerls",
   "docker_compose_language_service",
-  "docker_ls",
   "ruff",
+  "intelephense",
+  "phpactor",
+  "rust_analyzer",
 }
 vim.lsp.enable(servers)
 
