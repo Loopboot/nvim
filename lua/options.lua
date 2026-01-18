@@ -4,8 +4,9 @@ require "nvchad.options"
 
 local o = vim.o
 o.cursorlineopt = "both"
-o.linespace = 12
+o.linespace = 16
 o.scrolloff = 8
 o.showmatch = true
 o.swapfile = false
 o.wrap = false
+o.autoindent = true

@@ -59,11 +59,15 @@ vim.lsp.config("docker_compose_language_service", {
   filetypes = { "yaml.docker-compose" },
 })
 
-vim.lsp.config("phpactor", {
+-- vim.lsp.config("phpactor", {
+--   filetypes = { "php" },
+-- })
+
+vim.lsp.config("intelephense", {
   filetypes = { "php" },
 })
 
-vim.lsp.config("intelephense", {
+vim.lsp.config("laravel_ls", {
   filetypes = { "php" },
 })
 
@@ -90,27 +94,24 @@ vim.lsp.config("ts_ls", {
   },
 })
 
-vim.lsp.config("pyright", {
+vim.lsp.config("basedpyright", {
   filetypes = { "python" },
+  settings = {
+    basedpyright = {
+      analysis = {
+        typeCheckingMode = "standard",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
 })
 
-vim.lsp.config("pylsp", {
-  filetypes = { "python" },
-})
--- dockerls: Set filetypes (Standard for Dockerfile)
-vim.lsp.config("dockerls", {
-  filetypes = { "dockerfile" },
-})
-
--- docker_compose_language_service: Set filetypes (Standard for Compose YAML)
-vim.lsp.config("docker_compose_language_service", {
-  filetypes = { "yaml.docker-compose" },
-})
 local servers = {
   "html",
   "cssls",
   "ts_ls",
-  "pyright",
+  "basedpyright",
   "eslint_lsp",
   "tailwindcss",
   "emmet_language_server",
@@ -118,8 +119,8 @@ local servers = {
   "docker_compose_language_service",
   "ruff",
   "intelephense",
-  "phpactor",
   "rust_analyzer",
+  "laravel_ls",
 }
 vim.lsp.enable(servers)
 
